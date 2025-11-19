@@ -14,7 +14,7 @@ public class Main extends Application {
     public void start(Stage mainStage) {
       Color backgroundColor = Color.rgb(131, 156, 201);
       Color keyColor = Color.rgb(170, 191, 191);
-      Color sharpFlatKey = Color.rgb(5, 19, 46);
+      Color sharpFlatKey = Color.rgb(5, 19, 46); 
       Pane bgPane = new Pane();
       bgPane.setPrefWidth(400.0);
       bgPane.setPrefHeight(400.0);
