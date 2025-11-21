@@ -12,6 +12,15 @@ public class Main extends Application {
   }
   @Override
     public void start(Stage mainStage) {
+      Octave[] octaves = new Octave[8];
+
+
+      for (int i = 0; i< octaves.length; i++) {
+        octaves[i] = new Octave(i);
+      }
+
+
+
       Color backgroundColor = Color.rgb(131, 156, 201);
       Color keyColor = Color.rgb(170, 191, 191);
       Color sharpFlatKey = Color.rgb(5, 19, 46); 

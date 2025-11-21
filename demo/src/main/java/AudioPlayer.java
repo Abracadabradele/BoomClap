@@ -90,7 +90,7 @@ public class AudioPlayer extends Application {
     root.setPadding(new Insets(10));
 
     Scene scene = new Scene(root, 400, 200);
-    primaryStage.setTitle("Audio Player");
+    primaryStage.setTitle("Boom Clap");
     primaryStage.setScene(scene);
     primaryStage.show();
   }
