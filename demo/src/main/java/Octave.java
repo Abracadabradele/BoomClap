@@ -12,6 +12,7 @@ public class Octave {
         this.basePath = "BoomClap/demo/src/main/java/audio/" + "octave" + Integer.toString(octaveNum);
         for (int i =0; i < this.notepaths.length; i++ ) {
             this.notepaths[i] = this.notepaths[i]+ Integer.toString(octaveNum);
+            
         }
 
     }
