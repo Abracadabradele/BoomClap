@@ -12,36 +12,12 @@ public class Main extends Application {
   }
   @Override
     public void start(Stage mainStage) {
-      Octave[] octaves = new Octave[8];
+      // Octave[] octaves = new Octave[8];
 
+      // for (int i = 0; i< octaves.length; i++) {
+      //   octaves[i] = new Octave(i);
+      // }
 
-      for (int i = 0; i< octaves.length; i++) {
-        octaves[i] = new Octave(i);
-      }
-
-
-
-      Color backgroundColor = Color.rgb(131, 156, 201);
-      Color keyColor = Color.rgb(170, 191, 191);
-      Color sharpFlatKey = Color.rgb(5, 19, 46); 
-      Pane bgPane = new Pane();
-      bgPane.setPrefWidth(400.0);
-      bgPane.setPrefHeight(400.0);
-      
-      Background backckground = new Background(new BackgroundFill(backgroundColor, null, null));
-      bgPane.setBackground(backckground);
-      
-
-
-      // Label greeting = new Label();
-      // greeting.("hello");
-      
-      VBox vBox = new VBox(bgPane);
-      //vBox.getChildren().addAll(greeting);
-      
-      Scene scene = new Scene(vBox, 400, 400);
-      mainStage.setScene(scene);
-      mainStage.show();
     } 
     
   }

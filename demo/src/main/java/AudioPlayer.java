@@ -19,9 +19,12 @@ public class AudioPlayer extends Application {
 
   @Override
   public void start(Stage primaryStage) {
-    // Base folder where your sound files live
-    String basePath = "BoomClap/demo/src/main/java/audio/";
-    String fileName = "C2.mp3"; // make sure this file exists
+    // make a button to select which octave 
+    // return the int
+    // new Octave(the int).basepath()
+    // set all filepaths for each buttons. 
+    String basePath = "BoomClap/demo/src/main/java/audio/octave4/";
+    String fileName = "C4.mp3"; // make sure this file exists
 
     String fullPath = basePath + fileName;
 
