@@ -19,6 +19,7 @@ public class AudioPlayer extends Application {
 
   @Override
   public void start(Stage primaryStage) {
+
     // make a button to select which octave 
     // return the int
     // new Octave(the int).basepath()

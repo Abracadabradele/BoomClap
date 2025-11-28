@@ -14,6 +14,10 @@ public class Piano extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        // Octave[] octaves = new Octave[12];
+        // for (int i = 0; i< octaves.length; i++) {
+        //     octaves[i] = new Octave(i+1);
+        // }
         // Create a TilePane
         TilePane tilePane = new TilePane();
         tilePane.setPadding(new Insets(20, 10, 20, 10)); // Add padding
