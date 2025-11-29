@@ -61,8 +61,11 @@ public class ButtonTileApp extends Application {
         
                 });
                 blackKeys.getChildren().add(bb);
-            } else
-                blackKeys.getChildren().add(new javafx.scene.layout.Region());
+            } else{
+                Region transparentRegion = new Region();
+                transparentRegion.setMouseTransparent(true);
+                blackKeys.getChildren().add(transparentRegion);
+            }
         }
         StackPane stackPane = new StackPane();
         stackPane.getChildren().addAll(whiteKeys, blackKeys);
