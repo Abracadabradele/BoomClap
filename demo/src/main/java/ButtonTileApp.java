@@ -20,32 +20,32 @@ public class ButtonTileApp extends Application {
         TilePane whiteKeys = new TilePane();
         whiteKeys.setPrefColumns(7);
         whiteKeys.setHgap(1);
-        whiteKeys.setAlignment(Pos.CENTER);
+        whiteKeys.setAlignment(Pos.TOP_CENTER);
         for (int i = 0; i < 7; i++) {
             Button wb = new Button(""+(i+1));
             wb.setPrefSize(50, 100);
             wb.setStyle("-fx-background-color: #FFFFFF; -fx-border-color: #000000;");
             wb.setOnAction(e -> {
-                    // int buttonNum = Integer.parseInt(wb.getText());
-                    // int octaveNum =4;
-                    // playNote currentNote = new playNote(octaveNum);
-                    // String fullpath = currentNote.getFullPathWB(buttonNum);
-                    // Media media = new Media(new File(fullpath).toURI().toString());
-                    // player = new MediaPlayer(media);
-                    // player.setVolume(1.0); //set volume
-                    // player.play();
-                    // System.out.println("note plated: " + fullpath);
-                    System.out.println("clicked");
+                    int buttonNum = Integer.parseInt(wb.getText());
+                    int octaveNum =4;
+                    playNote currentNote = new playNote(octaveNum);
+                    String fullpath = currentNote.getFullPathWB(buttonNum);
+                    Media media = new Media(new File(fullpath).toURI().toString());
+                    player = new MediaPlayer(media);
+                    player.setVolume(1.0); //set volume
+                    player.play();
+                    System.out.println("note plated: " + fullpath);
+                    
                 });
             whiteKeys.getChildren().add(wb);
         }
 
         TilePane blackKeys = new TilePane();
         blackKeys.setPrefColumns(7);
-        blackKeys.setHgap(5);
+        blackKeys.setHgap(17);
         blackKeys.setAlignment(Pos.TOP_CENTER);
         for (int i = 0; i < 7; i++) {
-            if (i == 0 || i == 1 || i == 3 || i == 4 || i == 5) {
+            if (i == 0 || i == 1 || i == 4 || i == 5 || i == 6) {
                 Button bb = new Button(""+(i+1));
                 bb.setPrefSize(25, 60);
                 bb.setStyle("-fx-background-color: #000000;");
