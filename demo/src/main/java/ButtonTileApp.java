@@ -20,6 +20,7 @@ public class ButtonTileApp extends Application {
     public void start(Stage primaryStage) {
         Pane root = new Pane();
         octaveNum = 4;
+        
      
         
         for (int i = 0; i < 7; i++) {
@@ -71,6 +72,8 @@ public class ButtonTileApp extends Application {
                     System.out.println("note plated: " + fullpath);
         
                 });
+
+        
         bb.setOnMousePressed(e-> bb.setStyle("-fx-background-color: #a34657ff; -fx-border-color: #000000;"));
         bb.setOnMouseReleased(e-> bb.setStyle("-fx-background-color: #000000;"));
        
@@ -88,6 +91,11 @@ public class ButtonTileApp extends Application {
             if (octaveNum == 7) {
             } else {
                 octaveNum++;
+                Button cod = new Button(""+octaveNum);
+                cod.setLayoutY(125);
+                cod.setLayoutX(160);
+                cod.setPrefSize(20, 20);
+                root.getChildren().add(cod);
             }
             System.out.println(octaveNum);
             
@@ -101,18 +109,20 @@ public class ButtonTileApp extends Application {
             if (octaveNum == 1) {
             } else {
                 octaveNum--;
+                Button cod = new Button(""+octaveNum);
+                cod.setLayoutY(125);
+                cod.setLayoutX(160);
+                cod.setPrefSize(20, 20);
+                root.getChildren().add(cod);
+
             }
             System.out.println(octaveNum);
             
         });
         root.getChildren().add(minus);
-        
-
-
-
 
     Scene scene = new Scene(root,350,175);
-    primaryStage.setTitle("Adele is so cool and smart!🤤😍-Dillan");
+    primaryStage.setTitle("Adele is so cool and smart!🤤😍-Adele");
     primaryStage.setScene(scene);
     primaryStage.show();
 
