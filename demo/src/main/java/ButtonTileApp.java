@@ -24,7 +24,7 @@ public class ButtonTileApp extends Application {
             Button wb = new Button(""+(i+1));
             wb.setPrefSize(50, 100);
             wb.setLayoutX(i*50);
-            wb.setLayouyY(0);
+            wb.setLayoutY(0);
             wb.setStyle("-fx-background-color: #FFFFFF; -fx-border-color: #000000;");
             wb.setOnAction(e -> {
             int buttonNum = Integer.parseInt(wb.getText());
@@ -42,11 +42,19 @@ public class ButtonTileApp extends Application {
         }
         
         for (int i = 0; i < 7; i++) {
-            if (i == 0 || i == 1 || i == 4 || i == 5 || i == 6) {
+            if (i == 0 || i == 1 || i == 3 || i == 4 || i == 5) {
                 Button bb = new Button(""+(i+1));
                 bb.setPrefSize(25, 60);
                 bb.setLayoutY(0);
-                bb.setLayoutX(37.5*(i+1));
+                double x;
+                if(i==0){
+                     x=37.5;
+                }
+                else{
+                     x=((50*(i+1))-12.5);
+                }
+
+                bb.setLayoutX(x);
                 bb.setStyle("-fx-background-color: #000000;");
                 bb.setOnAction(e -> {
                     int buttonNum = Integer.parseInt(bb.getText());
@@ -65,8 +73,25 @@ public class ButtonTileApp extends Application {
                continue;
             }
         }
-    Scene scene = new Scene(root,350,100);
+        Button plus = new Button("Increase octave");
+        plus.setLayoutY(125);
+        plus.setLayoutX(200);
+        plus.setPrefSize(10,10);
+        root.getChildren().add(plus);
+
+
+        Button minus = new Button("Decrease octave");
+        minus.setLayoutY(125);
+        minus.setLayoutX(125);
+        minus.setPrefSize(10,10);
+        root.getChildren().add(minus);
+
+
+
+
+    Scene scene = new Scene(root,350,175);
     primaryStage.setTitle("Dillan is so cool and smart!🤤😍-Adele");
+    primaryStage.setScene(scene);
     primaryStage.show();
 
     }
