@@ -3,7 +3,7 @@ public class playNote {
     private int octaveNum;
     private String basePath;
     private static final String[] wbnotes = {"C", "D", "E", "F", "G", "A", "B"};
-    private static final String[] bbnotes = {"Db", "Eb","", "", "Gb", "Ab", "Bb"};
+    private static final String[] bbnotes = {"Db", "Eb","", "Gb", "Ab", "Bb"};
     private String notepath;
     
 

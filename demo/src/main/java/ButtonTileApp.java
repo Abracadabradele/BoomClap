@@ -71,8 +71,8 @@ public class ButtonTileApp extends Application {
                     System.out.println("note plated: " + fullpath);
         
                 });
-        bb.setOnMousePressed(e-> wb.setStyle("-fx-background-color: #a34657ff; -fx-border-color: #000000;"));
-        bb.setOnMouseReleased(e-> wb.setStyle("-fx-background-color: #0000; -fx-border-color: #000000;"));
+        //bb.setOnMousePressed(e-> wb.setStyle("-fx-background-color: #a34657ff; -fx-border-color: #000000;"));
+        //bb.setOnMouseReleased(e-> wb.setStyle("-fx-background-color: #0000; -fx-border-color: #000000;"));
        
         root.getChildren().add(bb);
             } else{
