@@ -15,9 +15,11 @@ import javafx.scene.media.MediaPlayer;
 
 public class ButtonTileApp extends Application {
     private MediaPlayer player;
+    private int octaveNum;
     @Override
     public void start(Stage primaryStage) {
         Pane root = new Pane();
+        octaveNum = 4;
      
         
         for (int i = 0; i < 7; i++) {
@@ -28,7 +30,6 @@ public class ButtonTileApp extends Application {
             wb.setStyle("-fx-background-color: #FFFFFF; -fx-border-color: #000000;");
             wb.setOnAction(e -> {
             int buttonNum = Integer.parseInt(wb.getText());
-            int octaveNum = 4;
             playNote currentNote = new playNote(octaveNum);
             String fullpath = currentNote.getFullPathWB(buttonNum);
             Media media = new Media(new File(fullpath).toURI().toString());
@@ -61,7 +62,6 @@ public class ButtonTileApp extends Application {
                 bb.setStyle("-fx-background-color: #000000;");
                 bb.setOnAction(e -> {
                     int buttonNum = Integer.parseInt(bb.getText());
-                    int octaveNum =4;
                     playNote currentNote = new playNote(octaveNum);
                     String fullpath = currentNote.getFullPathBB(buttonNum);
                     Media media = new Media(new File(fullpath).toURI().toString());
@@ -71,32 +71,48 @@ public class ButtonTileApp extends Application {
                     System.out.println("note plated: " + fullpath);
         
                 });
-        //bb.setOnMousePressed(e-> wb.setStyle("-fx-background-color: #a34657ff; -fx-border-color: #000000;"));
-        //bb.setOnMouseReleased(e-> wb.setStyle("-fx-background-color: #0000; -fx-border-color: #000000;"));
+        bb.setOnMousePressed(e-> bb.setStyle("-fx-background-color: #a34657ff; -fx-border-color: #000000;"));
+        bb.setOnMouseReleased(e-> bb.setStyle("-fx-background-color: #000000;"));
        
         root.getChildren().add(bb);
             } else{
                continue;
             }
         }
-        Button plus = new Button("Increase octave");
+        Button plus = new Button("+");
         plus.setLayoutY(125);
         plus.setLayoutX(200);
         plus.setPrefSize(10,10);
         root.getChildren().add(plus);
+        plus.setOnAction(e -> {
+            if (octaveNum == 7) {
+            } else {
+                octaveNum++;
+            }
+            System.out.println(octaveNum);
+            
+        });
 
-
-        Button minus = new Button("Decrease octave");
+        Button minus = new Button("-");
         minus.setLayoutY(125);
         minus.setLayoutX(125);
         minus.setPrefSize(10,10);
+        minus.setOnAction(e -> {
+            if (octaveNum == 1) {
+            } else {
+                octaveNum--;
+            }
+            System.out.println(octaveNum);
+            
+        });
         root.getChildren().add(minus);
+        
 
 
 
 
     Scene scene = new Scene(root,350,175);
-    primaryStage.setTitle("Dillan is so cool and smart!🤤😍-Adele");
+    primaryStage.setTitle("Adele is so cool and smart!🤤😍-Dillan");
     primaryStage.setScene(scene);
     primaryStage.show();
 
