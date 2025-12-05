@@ -1,8 +1,10 @@
-import java.awt.event.KeyEvent;
+
+// import java.awt.event.KeyEvent;
 import java.io.File;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
@@ -13,12 +15,14 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+
 import java.util.*;
 
 public class ButtonTileApp extends Application {
     private MediaPlayer player;
     private int octaveNum;
-    private String whiteNotes[];
+    private String white;
+    private String black;
     private ArrayList<Button> whiteKeys = new ArrayList<>();
     private ArrayList<Button> blackKeys = new ArrayList<>();
     @Override
@@ -26,10 +30,11 @@ public class ButtonTileApp extends Application {
         Pane root = new Pane();
         octaveNum = 4;
         
+        
         for (int i = 0; i < 7; i++) {
             final int buttonNum = i+1;
-            String string = "CDEFGAB";
-            Button wb = new Button(""+string.charAt(i));
+            white = "CDEFGAB";
+            Button wb = new Button(""+white.charAt(i));
             whiteKeys.add(wb);
             wb.setPrefSize(50, 100);
             wb.setLayoutX(i*50);
@@ -55,8 +60,9 @@ public class ButtonTileApp extends Application {
         for (int i = 0; i < 7; i++) {
             if (i == 0 || i == 1 || i == 3 || i == 4 || i == 5) {
                 final int buttonNum= i+1;
-                String black = "CD FGA";
-                Button bb = new Button(""+black.charAt(i)+"#");
+                black = "CD FGA";
+                String blackbind = "12 345";
+                Button bb = new Button(""+black.charAt(i)+"#\n"+blackbind.charAt(i));
                 blackKeys.add(bb);
                 bb.setPrefSize(25, 60);
                 bb.setLayoutY(0);
@@ -70,7 +76,7 @@ public class ButtonTileApp extends Application {
 
                 bb.setLayoutX(x);
                 bb.setStyle("-fx-background-color: #000000; -fx-font-size: 7pt; -fx-color: #ffffff; -fx-text-fill: white;");
-                bb.setOnAction(e -> {
+                bb.setOnAction( e -> {
                     playNote currentNote = new playNote(octaveNum);
                     String fullpath = currentNote.getFullPathBB(buttonNum);
                     Media media = new Media(new File(fullpath).toURI().toString());
@@ -91,13 +97,13 @@ public class ButtonTileApp extends Application {
             }
         }
         Button plus = new Button("+");
-        plus.setLayoutY(125);
+        plus.setLayoutY(115);
         plus.setLayoutX(200);
         plus.setPrefSize(10,10);
         root.getChildren().add(plus);
         Button cod = new Button(""+octaveNum);
-        cod.setStyle("-fx-background-color: #ef8d9fff;");
-        cod.setLayoutY(125);
+        cod.setStyle("-fx-background-color: #ef8d9fff; -fx-border-color: #000000;");
+        cod.setLayoutY(115);
         cod.setLayoutX(160);
         cod.setPrefSize(20, 20);
         root.getChildren().add(cod);
@@ -107,12 +113,11 @@ public class ButtonTileApp extends Application {
                 octaveNum++;
                 cod.setText(""+octaveNum);
             }
-            System.out.println(octaveNum);
             
         });
 
         Button minus = new Button("-");
-        minus.setLayoutY(125);
+        minus.setLayoutY(115);
         minus.setLayoutX(125);
         minus.setPrefSize(10,10);
         minus.setOnAction(e -> {
@@ -125,11 +130,26 @@ public class ButtonTileApp extends Application {
             
         });
         root.getChildren().add(minus);
+        Button guitar = new Button("Guitar");
+        guitar.setLayoutY(145);
+        guitar.setLayoutX(150);
+        guitar.setPrefSize(50, 30);
+        guitar.setStyle("-fx-border-color: #000000; -fx-background-color: #f299aaff; -fx-font-size: 7pt; -fx-color: #000000ff; -fx-text-fill: black;");
+        root.getChildren().add(guitar);
 
     Scene scene = new Scene(root,350,175);
-    primaryStage.setTitle("Adele is so cool and smart!🤤😍-Adele");
+    primaryStage.setTitle("Dillan is so handsome cool and smart!🤤😍-Adele");
     primaryStage.setScene(scene);
     primaryStage.show();
+    scene.setOnKeyPressed(e -> {
+        if (white.contains(e.getCode().toString().toUpperCase())) { // Or any other KeyCode you want
+            whiteKeys.get(white.indexOf(e.getCode().toString().toUpperCase())).fire(); // This programmatically "clicks" the button
+            e.consume(); // Consume the event to prevent further processing
+        }
+    });
+    // for (int i =0; i < whiteKeys.size(); i++) {
+    //     System.out.println(whiteKeys.get(i));
+    // }
 
     }
 
@@ -137,3 +157,4 @@ public class ButtonTileApp extends Application {
         launch(args);
     }
 }
+
