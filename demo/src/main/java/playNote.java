@@ -9,21 +9,17 @@ public class playNote {
 
     public playNote(int octaveNum) {
         this.octaveNum = octaveNum;
-        this.basePath = "BoomClap/demo/src/main/java/audio/" + "octave" + Integer.toString(octaveNum)+"/";
-        // for (int i =0; i < this.notepaths.length; i++ ) {
-        //     this.notepath = this.notepaths[i]+this.octaveNum;
-            
-        // }
+        this.basePath = "BoomClap/demo/src/main/java/audio/";
 
     }
-    public String getFullPathWB(int buttonNum) {
-        return this.basePath + this.wbnotes[buttonNum-1]+ this.octaveNum +".mp3";
+    public String getFullPathWB(int buttonNum, String instrument, int octaveNum) {
+
+            return this.basePath + instrument+ "/"+ "octave"+ Integer.toString(octaveNum)+"/"+ this.wbnotes[buttonNum-1]+ this.octaveNum +".mp3";
     }
-    public String getFullPathBB(int buttonNum) {
-        return this.basePath + this.bbnotes[buttonNum-1]+ this.octaveNum +".mp3";
+    public String getFullPathBB(int buttonNum, String instrument, int octaveNum) {
+                  return this.basePath + instrument+ "/"+ "octave"+ Integer.toString(octaveNum)+"/"+ this.bbnotes[buttonNum-1]+ this.octaveNum +".mp3";
+
     }
 
 
-    // general class for octave; 
-    //should be abstract so each octave can extend, subbing in proper notes
 }

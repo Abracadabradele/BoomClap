@@ -25,10 +25,12 @@ public class ButtonTileApp extends Application {
     private String black;
     private ArrayList<Button> whiteKeys = new ArrayList<>();
     private ArrayList<Button> blackKeys = new ArrayList<>();
+    private String instrument;
     @Override
     public void start(Stage primaryStage) {
         Pane root = new Pane();
         octaveNum = 4;
+        instrument = "piano";
         
         
         for (int i = 0; i < 7; i++) {
@@ -42,7 +44,7 @@ public class ButtonTileApp extends Application {
             wb.setStyle("-fx-background-color: #FFFFFF; -fx-border-color: #000000;");
             wb.setOnAction(e -> {
             playNote currentNote = new playNote(octaveNum);
-            String fullpath = currentNote.getFullPathWB(buttonNum);
+            String fullpath = currentNote.getFullPathWB(buttonNum, instrument, octaveNum);
             Media media = new Media(new File(fullpath).toURI().toString());
             player = new MediaPlayer(media);
             player.setVolume(1.0); // set volume
@@ -78,7 +80,7 @@ public class ButtonTileApp extends Application {
                 bb.setStyle("-fx-background-color: #000000; -fx-font-size: 7pt; -fx-color: #ffffff; -fx-text-fill: white;");
                 bb.setOnAction( e -> {
                     playNote currentNote = new playNote(octaveNum);
-                    String fullpath = currentNote.getFullPathBB(buttonNum);
+                    String fullpath = currentNote.getFullPathBB(buttonNum, instrument, octaveNum);
                     Media media = new Media(new File(fullpath).toURI().toString());
                     player = new MediaPlayer(media);
                     player.setVolume(1.0); //set volume
@@ -135,10 +137,13 @@ public class ButtonTileApp extends Application {
         guitar.setLayoutX(150);
         guitar.setPrefSize(50, 30);
         guitar.setStyle("-fx-border-color: #000000; -fx-background-color: #f299aaff; -fx-font-size: 7pt; -fx-color: #000000ff; -fx-text-fill: black;");
+        guitar.setOnAction(e-> {
+            instrument = "guitar";
+        });
         root.getChildren().add(guitar);
 
     Scene scene = new Scene(root,350,175);
-    primaryStage.setTitle("Dillan is so handsome cool and smart!🤤😍-Adele");
+    primaryStage.setTitle("BoomClap: The Music App");
     primaryStage.setScene(scene);
     primaryStage.show();
     scene.setOnKeyPressed(e -> {
