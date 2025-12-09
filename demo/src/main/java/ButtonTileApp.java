@@ -138,7 +138,13 @@ public class ButtonTileApp extends Application {
         guitar.setPrefSize(50, 30);
         guitar.setStyle("-fx-border-color: #000000; -fx-background-color: #f299aaff; -fx-font-size: 7pt; -fx-color: #000000ff; -fx-text-fill: black;");
         guitar.setOnAction(e-> {
-            instrument = "guitar";
+            if (instrument.equals("guitar")) {
+                instrument = "piano";
+                guitar.setText("Guitar");
+            } else {
+                instrument = "guitar";
+                guitar.setText("Piano");
+            }
         });
         root.getChildren().add(guitar);
 

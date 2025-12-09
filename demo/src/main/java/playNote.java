@@ -9,7 +9,7 @@ public class playNote {
 
     public playNote(int octaveNum) {
         this.octaveNum = octaveNum;
-        this.basePath = "BoomClap/demo/src/main/java/audio/";
+        this.basePath = "demo/src/main/java/audio/";
 
     }
     public String getFullPathWB(int buttonNum, String instrument, int octaveNum) {
